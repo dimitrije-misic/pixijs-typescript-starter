@@ -6,7 +6,9 @@ This setup is supposed to be used with VS Code, as configuration is provided so 
 
 # My Updates _(Dimitrije Mišić)_:
 
-Moved to using yarn for package management, upgraded packages to latest on `9/12/2024`. Added `PIXI.Devtools`.
+- Moved to using yarn for package management
+- Upgraded packages to latest on `9/12/2024`
+- Added [PixiJS DevTools](https://github.com/pixijs/devtools)
 
 ## Demo
 
