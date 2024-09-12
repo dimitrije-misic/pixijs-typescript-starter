@@ -1,10 +1,13 @@
 import * as PIXI from 'pixi.js';
 import { HelloWorld } from './scenes/helloWorld';
+import { initDevtools } from '@pixi/devtools';
 
 const main = async () => {
     // Main app
     let app = new PIXI.Application();
     await app.init();
+
+    initDevtools({ app });
 
     // Display application properly
     document.body.style.margin = '0';
