@@ -7,7 +7,8 @@ module.exports = {
     // Basic configuration
     entry: './src/index.ts',
     // Necessary in order to use source maps and debug directly TypeScript files
-    devtool: 'source-map',
+    devtool: 'eval-source-map',
+    mode: 'development',
     module: {
         rules: [
             // Necessary in order to use TypeScript
@@ -36,15 +37,19 @@ module.exports = {
         // Do not accumulate files in ./dist
         new CleanWebpackPlugin(),
         // Copy assets to serve them
-        new CopyPlugin([{ from: 'assets', to: 'assets' }]),
+        new CopyPlugin({
+            patterns: [{ from: 'assets', to: 'assets' }]
+        }),
     ],
     devServer: {
         // webpack-dev-server configuration
-        contentBase: path.join(__dirname, 'dist'),
+        static: path.join(__dirname, 'dist'),
         // keep port in sync with VS Code launch.json
         port: 3000,
         // Hot-reloading, the sole reason to use webpack here <3
         hot: true,
-        writeToDisk: true,
+        devMiddleware: {
+            writeToDisk: true,
+        }
     },
 }
